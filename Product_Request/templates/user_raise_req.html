@@ -1,0 +1,27 @@
+{% if request.session.user %}
+
+{% include 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="dropdown" align="right">
+  <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{ request.session.user }}
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Contact Us</a>
+    <a class="dropdown-item" href="#">About</a>
+    <a class="dropdown-item" href="/user_logout/">Logout</a>
+  </div>
+</div>
+
+
+<h2><strong>{{ request.session.user }}</strong> is will Raise the Request to the Product</h2>
+
+
+{% endblock %}
+
+{% else %}
+    {% include 'user_home.html' %}
+{% endif %}
